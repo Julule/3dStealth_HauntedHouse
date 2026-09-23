@@ -33,14 +33,13 @@ public class PlayerMovement : MonoBehaviour
         float vertical = direction.y;
 
         Vector3 movement = new(horizontal, 0f, vertical);
-        movement.Normalize();
+        movement.Normalize(); // on remet la longueur à parcourir à 1
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, turnSpeed * Time.fixedDeltaTime, 0f);
 
         Quaternion rotation = Quaternion.LookRotation(desiredForward);
 
         playerRigidbody.MoveRotation(rotation);
-
         playerRigidbody.MovePosition(playerRigidbody.position + movement * walkSpeed * Time.fixedDeltaTime); // on calcule le déplacement vie l'opération : positionactuelle + movement*rapidité*temps
 
     }

@@ -33,10 +33,10 @@ public class Observer : MonoBehaviour
         if (playerIsInside)
         {
             Vector3 direction = player.position - transform.position; // position du player - position de ce script-ci
-            Debug.DrawRay(transform.position, player.position*10f,Color.red);
             // pour typer une variable de dir de vecteur vertic
             direction += Vector3.up;
             Ray ray = new(transform.position, player.position);
+            Debug.DrawRay(transform.position, direction);
             RaycastHit hit; 
 
 
